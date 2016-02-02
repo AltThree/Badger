@@ -70,7 +70,7 @@ class Badge
      *
      * @var string
      */
-    const DEFAULT_FORMAT = 'svg';
+    const DEFAULT_FORMAT = 'flat-square';
 
     /**
      * Create a new badge instance.
