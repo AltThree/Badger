@@ -6,7 +6,7 @@ A badge generator for Laravel 5.
 
 ```php
 // Using the facade
-Badger::generate('license', 'mit', 'blue', 'flat-square')
+Badger::generate('license', 'MIT', 'blue', 'flat-square')
 
 // Dependency injection example
 $badger->generate('author', 'Alt Three', 'brightgreen', 'plastic')
@@ -40,7 +40,27 @@ You can register the Badger facade in the `aliases` key of your `config/app.php`
 
 * `'Badger' => 'AltThree\Badger\Facades\Badger'`
 
-## Supported Badge Types
+## Usage
+
+The generate method takes four parameters:
+
+```php
+Badger::generate('license', 'MIT', 'blue', 'flat-square')
+```
+
+The first parameter is the subject, or what it is the badge is showing. In the example above this is the license. The second parameter is the value (the right hand of the badge). Next is the color of the badge. This can be one of the following preset colors _or_ a valid hex string.
+
+- `brightgreen`
+- `green`
+- `yellow`
+- `yellowgreen`
+- `orange`
+- `red`
+- `blue`
+- `grey`
+- `lightgray`
+
+And finally the fourth parameter is the badge type. This determines the style of the badge and can be one of the four values below.
 
 - `flat-square` (default)
 - `plastic-flat`, `flat`
