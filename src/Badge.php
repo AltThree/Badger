@@ -1,0 +1,184 @@
+<?php
+
+/*
+ * This file is part of Alt Three Badger.
+ *
+ * (c) Alt Three Services Limited
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace AltThree\Badger;
+
+use AltThree\Badger\Exceptions\InvalidHexColorException;
+
+/**
+ * This is the badge class.
+ *
+ * @author James Brooks <james@alt-three.com>
+ */
+class Badge
+{
+    /**
+     * The left side of the badge.
+     *
+     * @var string
+     */
+    protected $subject;
+
+    /**
+     * The right side of the badge.
+     *
+     * @var string
+     */
+    protected $status;
+
+    /**
+     * The color of the badge.
+     *
+     * @var string
+     */
+    protected $color;
+
+    /**
+     * The format of the badge.
+     *
+     * @var string
+     */
+    protected $format;
+
+    /**
+     * The default colors to map strings to.
+     *
+     * @var array
+     */
+    protected $colorMap = [
+        'brightgreen' => '4c1',
+        'green'       => '97CA00',
+        'yellow'      => 'dfb317',
+        'yellowgreen' => 'a4a61d',
+        'orange'      => 'fe7d37',
+        'red'         => 'e05d44',
+        'blue'        => '007ec6',
+        'grey'        => '555',
+        'lightgray'   => '9f9f9f',
+    ];
+
+    /**
+     * The default format to render the badge as.
+     *
+     * @var string
+     */
+    const DEFAULT_FORMAT = 'svg';
+
+    /**
+     * Create a new badge instance.
+     *
+     * @throws \AltThree\Badger\Exceptions\InvalidHexColorException
+     *
+     * @return void
+     */
+    public function __construct($subject, $status, $color, $format = self::DEFAULT_FORMAT)
+    {
+        $this->subject = $subject;
+        $this->status = $status;
+        $this->color = $this->getColorMapOrAsHex($color);
+        $this->format = $format;
+
+        if (!$this->isValidHex($this->color)) {
+            throw new InvalidHexColorException('The color argument "'.$this->color.'" is invalid.');
+        }
+    }
+
+    /**
+     * Return the subject.
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * Return the status.
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Return the color.
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Return the color with the prefixed #
+     *
+     * @return string
+     */
+    public function getHexColor()
+    {
+        return '#'.$this->getColor();
+    }
+
+    /**
+     * Return the format.
+     *
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * Generate the badge as a string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s-%s-%s.%s',
+            $this->subject,
+            $this->status,
+            $this->color,
+            $this->format
+        );
+    }
+
+    /**
+     * Check if the color is within the color map, or return it as normal.
+     *
+     * @param string $color
+     *
+     * @return string
+     */
+    protected function getColorMapOrAsHex($color)
+    {
+        return isset($this->colorMap[$color]) ? $this->colorMap[$color] : $color;
+    }
+
+    /**
+     * Determins if the given color is a valid hex code.
+     *
+     * @param string $color
+     *
+     * @return bool
+     */
+    protected function isValidHex($color)
+    {
+        $color = ltrim($color, '#'); // Strip the leading #
+
+        return preg_match('/^[0-9a-fA-F]{3,6}$/', $color);
+    }
+}
