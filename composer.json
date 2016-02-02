@@ -23,7 +23,6 @@
         "illuminate/support": "5.1.*|5.2.*"
     },
     "require-dev": {
-        "graham-campbell/markdown": "^6.0",
         "graham-campbell/testbench": "^3.1",
         "phpunit/phpunit": "^4.8|^5.0"
     },
