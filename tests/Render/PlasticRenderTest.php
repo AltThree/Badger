@@ -27,7 +27,7 @@ class PlasticRenderTest extends AbstractTestCase
     {
         $svgRender = $this->getPlasticRenderer();
 
-        $this->assertSame(['plastic'], $svgRender->getSupportedFormats());
+        $this->assertSame(['svg', 'plastic'], $svgRender->getSupportedFormats());
     }
 
     public function testRenderAltThreeAwesomeBrightGreen()

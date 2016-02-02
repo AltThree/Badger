@@ -25,7 +25,7 @@ class PlasticRender extends AbstractRender implements RenderInterface
      */
     public function getSupportedFormats()
     {
-        return ['plastic'];
+        return ['svg', 'plastic'];
     }
 
     /**
