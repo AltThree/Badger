@@ -142,7 +142,7 @@ class Badge
      */
     public function getColor()
     {
-        return $this->color;
+        return ltrim($this->color, '#');
     }
 
     /**
