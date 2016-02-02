@@ -108,9 +108,9 @@ class Badge
         }
 
         $subject = $match[1];
-        $status  = $match[3];
-        $color   = $match[5];
-        $format  = $match[7];
+        $status = $match[3];
+        $color = $match[5];
+        $format = $match[7];
 
         return new self($subject, $status, $color, $format);
     }
