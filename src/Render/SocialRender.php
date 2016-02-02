@@ -12,7 +12,6 @@
 namespace AltThree\Badger\Render;
 
 use AltThree\Badger\Badge;
-use AltThree\Badger\BadgeImage;
 
 /**
  * This is the social render class.
