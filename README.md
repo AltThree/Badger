@@ -3,7 +3,7 @@
 A badge generator for Laravel 5.
 
 [![StyleCI](https://styleci.io/repos/50913959/shield)](https://styleci.io/repos/50913959)
-[![Travis](https://img.shields.io/travis/AltThree/Badger.svg?style=flat-square)](https://travis-ci.org/AltThree/Badger.svg?branch=master)
+[![Travis](http://img.shields.io/travis/AltThree/Badger.svg?style=flat-square)](https://travis-ci.org/AltThree/Badger.svg?branch=master)
 
 ```php
 // Using the facade
