@@ -84,8 +84,8 @@ class Badge
      */
     public function __construct($subject, $status, $color, $format = self::DEFAULT_FORMAT)
     {
-        $this->subject = $subject;
-        $this->status = $status;
+        $this->subject = htmlspecialchars($subject, ENT_XML1, 'UTF-8');
+        $this->status = htmlspecialchars($status, ENT_XML1, 'UTF-8');
         $this->color = $this->getColorMapOrAsHex($color);
         $this->format = $format;
 
