@@ -60,6 +60,22 @@ class Badger
     }
 
     /**
+     * Generates a badge from a string.
+     *
+     * Example: license-MIT-blue.svg
+     *
+     * @param string $string
+     *
+     * @return \AltThree\Badger\BadgeImage
+     */
+    public function generateFromString($string)
+    {
+        $badge = Badge::fromString($string);
+
+        return $this->getRendererForFormat($badge->getFormat())->render($badge);
+    }
+
+    /**
      * Adds each renderer to its supported format.
      *
      * @param \AltThree\Badger\Render\RenderInterface $renderer

@@ -12,6 +12,7 @@
 namespace AltThree\Badger;
 
 use AltThree\Badger\Exceptions\InvalidHexColorException;
+use InvalidArgumentException;
 
 /**
  * This is the badge class.
@@ -89,6 +90,29 @@ class Badge
         if (!$this->isValidHex($this->color)) {
             throw new InvalidHexColorException('The color argument "'.$this->color.'" is invalid.');
         }
+    }
+
+    /**
+     * Generates a badge from a string format.
+     *
+     * Example: I_m-liuggio-yellow.svg
+     *
+     * @param string $format
+     *
+     * @return \AltThree\Badger\Badge
+     */
+    public static function fromString($format)
+    {
+        if (preg_match('/^(([^-]|--)+)-(([^-]|--)+)-(([^-]|--)+)\.(svg|png|gif|jpg)$/', $format, $match) === false && (7 != count($match))) {
+            throw new InvalidArgumentException('The given format string is invalid: '.$format);
+        }
+
+        $subject = $match[1];
+        $status  = $match[3];
+        $color   = $match[5];
+        $format  = $match[7];
+
+        return new self($subject, $status, $color, $format);
     }
 
     /**
