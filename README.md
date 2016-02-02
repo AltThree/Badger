@@ -1,17 +1,24 @@
 # Alt Three Badger
 
-A badge generator for Laravel 5.
+A badge/shields generator for PHP, with Laravel 5 Service Provider & Facade.
 
 [![StyleCI](https://styleci.io/repos/50913959/shield)](https://styleci.io/repos/50913959)
 [![Travis](http://img.shields.io/travis/AltThree/Badger.svg?style=flat-square)](https://travis-ci.org/AltThree/Badger.svg?branch=master)
 
+---
+
+## Examples
+
 ```php
 // Using the facade
-Badger::generate('license', 'MIT', 'blue', 'flat-square')
+Badger::generate('license', 'MIT', 'blue', 'plastic')
 
 // Dependency injection example
-$badger->generate('author', 'Alt Three', 'brightgreen', 'plastic')
+$badger->generate('license', 'MIT', '#ff69b4', 'plastic')
 ```
+
+![License Blue MIT](/tests/stubs/license-MIT-blue-plastic.svg)
+![License Custom MIT](/tests/stubs/license-MIT-custom-plastic.svg)
 
 ## Installation
 
@@ -32,6 +39,10 @@ Instead, you may of course manually update your require block and run `composer 
     }
 }
 ```
+
+### Laravel Setup
+
+Alt Three Badger comes packaged with a [Laravel 5](https://laravel.com) Service Provider & Facade.
 
 Once Alt Three Badger is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
