@@ -5,8 +5,11 @@ A badge generator for Laravel 5.
 [![StyleCI](https://styleci.io/repos/50913959/shield)](https://styleci.io/repos/50913959)
 
 ```php
-// Generate a badge using the Facade
-Badger::generate('license', 'mit', 'blue', 'flat-square');
+// Using the facade
+Badger::generate('license', 'mit', 'blue', 'flat-square')
+
+// Dependency injection example
+$badger->generate('author', 'Alt Three', 'brightgreen', 'plastic')
 ```
 
 ## Installation
@@ -36,6 +39,12 @@ Once Alt Three Badger is installed, you need to register the service provider. O
 You can register the Badger facade in the `aliases` key of your `config/app.php` file if you like.
 
 * `'Badger' => 'AltThree\Badger\Facades\Badger'`
+
+## Supported Badge Types
+
+- `flat-square` (default)
+- `plastic-flat`, `flat`
+- `plastic`
 
 ## Security
 
