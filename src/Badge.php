@@ -122,7 +122,7 @@ class Badge
     }
 
     /**
-     * Return the color with the prefixed #
+     * Return the color with the prefixed #.
      *
      * @return string
      */

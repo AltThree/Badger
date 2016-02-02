@@ -11,11 +11,6 @@
 
 namespace AltThree\Badger\Render;
 
-use AltThree\Badger\Badge;
-use AltThree\Badger\BadgeImage;
-use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
-use AltThree\Badger\Calculator\GDTextSizeCalculator;
-
 /**
  * This is the flat square render class.
  *

@@ -11,7 +11,6 @@
 
 namespace AltThree\Tests\Badger\Calculator;
 
-use AltThree\Badge\Calculator\TextSizeCalculatorInterface;
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
 use AltThree\Tests\Badger\AbstractTestCase;
 

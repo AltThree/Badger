@@ -12,8 +12,8 @@
 namespace AltThree\Badger;
 
 use AltThree\Badger\Render\FlatSquareRender;
-use AltThree\Badger\Render\PlasticRender;
 use AltThree\Badger\Render\PlasticFlatRender;
+use AltThree\Badger\Render\PlasticRender;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 

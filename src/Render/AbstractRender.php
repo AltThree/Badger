@@ -13,8 +13,8 @@ namespace AltThree\Badger\Render;
 
 use AltThree\Badger\Badge;
 use AltThree\Badger\BadgeImage;
-use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
+use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
 
 /**
  * This is the abstract render class.
