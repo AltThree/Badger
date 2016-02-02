@@ -14,6 +14,7 @@ namespace AltThree\Badger;
 use AltThree\Badger\Render\FlatSquareRender;
 use AltThree\Badger\Render\PlasticFlatRender;
 use AltThree\Badger\Render\PlasticRender;
+use AltThree\Badger\Render\SocialRender;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 
@@ -56,6 +57,7 @@ class BadgerServiceProvider extends ServiceProvider
                 new PlasticRender(),
                 new PlasticFlatRender(),
                 new FlatSquareRender(),
+                new SocialRender(),
             ];
 
             return new Badger($renderers);

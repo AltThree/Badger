@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{{ totalWidth }}" height="20">
+  <style type="text/css"><![CDATA[
+    #llink:hover { fill:url(#b); stroke:#ccc; }
+    #rlink:hover { fill:{{ valueColor }}; }
+  ]]></style>
+  <linearGradient id="a" x2="0" y2="100%">
+    <stop offset="0" stop-color="#fcfcfc" stop-opacity="0"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <linearGradient id="b" x2="0" y2="100%">
+    <stop offset="0" stop-color="#ccc" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <g stroke="#d5d5d5">
+    <rect stroke="none" fill="#fcfcfc" x="0.5" y="0.5" width="{{ vendorWidth }}" height="19" rx="2"/>
+    <rect y="0.5" x="{{ arrowStartPosition }}" width="{{ valueWidth }}" height="19" rx="2" fill="#fafafa"/>
+    <rect x="{{ arrowStartPosition }}" y="7.5" width="0.5" height="5" stroke="#fafafa"/>
+    <path d="M{{ arrowPathPosition }} 6.5 l-3 3v1 l3 3" stroke="d5d5d5" fill="#fafafa"/>
+  </g>
+  <g fill="#333" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-weight="700" font-size="11px" line-height="14px">
+    <text x="{{ vendorStartPosition }}" y="15" fill="#fff">{{ vendor }}</text>
+    <text x="{{ vendorStartPosition }}" y="14">{{ vendor }}</text>
+    <text x="{{ valueStartPosition }}" y="15" fill="#fff">{{ value }}</text>
+    <text x="{{ valueStartPosition }}" y="14">{{ value }}</text>
+  </g>
+  <a xlink:href="undefined">
+      <rect id="llink" stroke="#d5d5d5" fill="url(#a)" x=".5" y=".5" width="{{ vendorWidth }}" height="19" rx="2"/>
+  </a>
+</svg>

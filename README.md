@@ -45,6 +45,7 @@ You can register the Badger facade in the `aliases` key of your `config/app.php`
 - `flat-square` (default)
 - `plastic-flat`, `flat`
 - `plastic`
+- `social` (without links)
 
 ## Security
 
