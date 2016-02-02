@@ -12,6 +12,7 @@
 namespace AltThree\Badger;
 
 use AltThree\Badger\Exceptions\InvalidRendererException;
+use AltThree\Badger\Render\RenderInterface;
 
 /**
  * This is the badger class.
@@ -36,7 +37,9 @@ class Badger
      */
     public function __construct(array $renderers)
     {
-        $this->renderers = $renderers;
+        foreach ($renderers as $renderer) {
+            $this->addRenderFormat($renderer);
+        }
     }
 
     /**
