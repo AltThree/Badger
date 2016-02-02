@@ -11,7 +11,7 @@
 
 namespace AltThree\Badger;
 
-use AltThree\Badger\Render\InvalidRendererException;
+use AltThree\Badger\Render\Exceptions\InvalidRendererException;
 
 /**
  * This is the badger class.
