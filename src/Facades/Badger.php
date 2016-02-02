@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Alt Three badger.
+ * This file is part of Alt Three Badger.
  *
  * (c) Alt Three Services Limited
  *

@@ -11,7 +11,6 @@
 
 namespace AltThree\Badger;
 
-use AltThree\Badger\Exceptions\InvalidHexColorException;
 use AltThree\Badger\Render\InvalidRendererException;
 
 /**
