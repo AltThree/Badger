@@ -17,8 +17,8 @@ Badger::generate('license', 'MIT', 'blue', 'plastic')
 $badger->generate('license', 'MIT', '#ff69b4', 'plastic')
 ```
 
-![License Blue MIT](/tests/stubs/license-MIT-blue-plastic.svg)
-![License Custom MIT](/tests/stubs/license-MIT-custom-plastic.svg)
+![License Blue MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-blue-plastic.svg)
+![License Custom MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-custom-plastic.svg)
 
 ## Installation
 
