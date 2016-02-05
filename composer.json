@@ -1,7 +1,7 @@
 {
     "name": "alt-three/badger",
-    "description": "A shields/badge generator",
-    "keywords": ["badge", "shield", "svg", "Alt Three", "laravel"],
+    "description": "A Badge Generator For Laravel 5",
+    "keywords": ["badger", "badge", "shield", "svg", "Badger" "Alt Three"],
     "license": "MIT",
     "authors": [
         {

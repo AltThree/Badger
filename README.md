@@ -1,24 +1,7 @@
 # Alt Three Badger
 
-A badge/shields generator for PHP, with Laravel 5 Service Provider & Facade.
+A Badger bridge for Laravel 5.
 
-[![StyleCI](https://styleci.io/repos/50913959/shield)](https://styleci.io/repos/50913959)
-[![Travis](http://img.shields.io/travis/AltThree/Badger.svg?style=flat-square)](https://travis-ci.org/AltThree/Badger.svg?branch=master)
-
----
-
-## Examples
-
-```php
-// Using the facade
-Badger::generate('license', 'MIT', 'blue', 'plastic')
-
-// Dependency injection example
-$badger->generate('license', 'MIT', '#ff69b4', 'plastic')
-```
-
-![License Blue MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-blue-plastic.svg)
-![License Custom MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-custom-plastic.svg)
 
 ## Installation
 
@@ -40,17 +23,24 @@ Instead, you may of course manually update your require block and run `composer 
 }
 ```
 
-### Laravel Setup
-
-Alt Three Badger comes packaged with a [Laravel 5](https://laravel.com) Service Provider & Facade.
-
 Once Alt Three Badger is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'AltThree\Badger\BadgerServiceProvider'`
 
-You can register the Badger facade in the `aliases` key of your `config/app.php` file if you like.
 
-* `'Badger' => 'AltThree\Badger\Facades\Badger'`
+## Examples
+
+```php
+// Using the facade
+Badger::generate('license', 'MIT', 'blue', 'plastic')
+
+// Dependency injection example
+$badger->generate('license', 'MIT', '#ff69b4', 'plastic')
+```
+
+![License Blue MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-blue-plastic.svg)
+![License Custom MIT](https://cdn.rawgit.com/AltThree/Badger/master/tests/stubs/license-MIT-custom-plastic.svg)
+
 
 ## Usage
 
@@ -79,10 +69,14 @@ And finally the fourth parameter is the badge type. This determines the style of
 - `plastic`
 - `social` (without links)
 
+
 ## Security
 
 If you discover a security vulnerability within this package, please e-mail us at support@alt-three.com. All security vulnerabilities will be promptly addressed.
 
+
 ## License
 
-Alt Three Badger is licensed under [The MIT License (MIT)](LICENSE). Based on the work done at [badges/poser](https://github.com/badges/poser).
+Alt Three Badger is licensed under [The MIT License (MIT)](LICENSE).
+
+Based on the work done at [badges/poser](https://github.com/badges/poser).
