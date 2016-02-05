@@ -18,6 +18,7 @@ use InvalidArgumentException;
  * This is the badge class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Badge
 {
@@ -77,6 +78,11 @@ class Badge
 
     /**
      * Create a new badge instance.
+     *
+     * @param string $subject
+     * @param string $status
+     * @param string $color
+     * @param string $format
      *
      * @throws \AltThree\Badger\Exceptions\InvalidHexColorException
      *
