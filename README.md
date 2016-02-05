@@ -1,6 +1,6 @@
 # Alt Three Badger
 
-A Badger bridge for Laravel 5.
+A badge generator for Laravel 5.
 
 
 ## Installation
