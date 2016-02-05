@@ -31,7 +31,7 @@ class Badger
     /**
      * Create a new badger instance.
      *
-     * @param array $renderers
+     * @param \AltThree\Badger\Render\RenderInterface[] $renderers
      *
      * @return void
      */
@@ -79,6 +79,8 @@ class Badger
      * Adds each renderer to its supported format.
      *
      * @param \AltThree\Badger\Render\RenderInterface $renderer
+     *
+     * @return void
      */
     protected function addRenderFormat(RenderInterface $renderer)
     {
