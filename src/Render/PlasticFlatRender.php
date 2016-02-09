@@ -35,6 +35,6 @@ class PlasticFlatRender extends AbstractRender implements RenderInterface
      */
     protected function getTemplate()
     {
-        return file_get_contents(__DIR__.'/templates/plastic-flat.svg');
+        return 'plastic-flat.svg';
     }
 }
