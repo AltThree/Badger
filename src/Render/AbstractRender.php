@@ -40,17 +40,19 @@ abstract class AbstractRender implements RenderInterface
     /**
      * Create a new svg render instance.
      *
-     * @param \AltThree\Badger\Calculator\TextSizeCalculatorInterface $textSizeCalculator
+     * @param \AltThree\Badger\Calculator\TextSizeCalculatorInterface|null $textSizeCalculator
+     * @param string|null                                                  $path
      *
      * @return void
      */
-    public function __construct(TextSizeCalculatorInterface $textSizeCalculator = null)
+    public function __construct(TextSizeCalculatorInterface $textSizeCalculator = null, $path = null)
     {
         if ($textSizeCalculator === null) {
             $textSizeCalculator = new GDTextSizeCalculator();
         }
 
         $this->textSizeCalculator = $textSizeCalculator;
+        $this->path = $path ?: __DIR__.'/../../templates';
     }
 
     /**
@@ -112,7 +114,7 @@ abstract class AbstractRender implements RenderInterface
      */
     protected function renderSvg(array $params, $format)
     {
-        $template = $this->getTemplate();
+        $template = file_get_contents($this->path.'/'.$this->getTemplate());
 
         foreach ($params as $key => $param) {
             $template = str_replace(sprintf('{{ %s }}', $key), $param, $template);

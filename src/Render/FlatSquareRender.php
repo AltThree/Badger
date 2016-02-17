@@ -35,6 +35,6 @@ class FlatSquareRender extends AbstractRender implements RenderInterface
      */
     protected function getTemplate()
     {
-        return file_get_contents(__DIR__.'/templates/flat-square.svg');
+        return 'flat-square.svg';
     }
 }
