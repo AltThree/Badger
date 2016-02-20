@@ -16,6 +16,12 @@ use AltThree\Badger\Facades\Badger;
 use AltThree\Tests\Badger\AbstractTestCase;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 
+/**
+ * This badger facade test case class.
+ *
+ * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
+ */
 class BadgerTest extends AbstractTestCase
 {
     use FacadeTrait;

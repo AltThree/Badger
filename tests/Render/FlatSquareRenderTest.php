@@ -14,12 +14,13 @@ namespace AltThree\Tests\Badger\Render;
 use AltThree\Badger\Badge;
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
 use AltThree\Badger\Render\FlatSquareRender;
-use AltThree\Tests\Badger\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the flat square render test case class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class FlatSquareRenderTest extends AbstractTestCase
 {
@@ -52,9 +53,12 @@ class FlatSquareRenderTest extends AbstractTestCase
 
     protected function getSvgRenderer()
     {
-        $textSizeCalculator = new GDTextSizeCalculator();
+        $base = __DIR__.'/../../resources/';
 
-        return new FlatSquareRender($textSizeCalculator);
+        $calculator = new GDTextSizeCalculator(realpath($base.'fonts/DejaVuSans.ttf'));
+        $path = $base.'templates';
+
+        return new FlatSquareRender($calculator, realpath($path));
     }
 
     protected function getStubFile($file)

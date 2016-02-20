@@ -14,12 +14,13 @@ namespace AltThree\Tests\Badger\Render;
 use AltThree\Badger\Badge;
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
 use AltThree\Badger\Render\PlasticRender;
-use AltThree\Tests\Badger\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the svg render test case class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class PlasticRenderTest extends AbstractTestCase
 {
@@ -52,9 +53,12 @@ class PlasticRenderTest extends AbstractTestCase
 
     protected function getPlasticRenderer()
     {
-        $textSizeCalculator = new GDTextSizeCalculator();
+        $base = __DIR__.'/../../resources/';
 
-        return new PlasticRender($textSizeCalculator);
+        $calculator = new GDTextSizeCalculator(realpath($base.'fonts/DejaVuSans.ttf'));
+        $path = $base.'templates';
+
+        return new PlasticRender($calculator, realpath($path));
     }
 
     protected function getStubFile($file)
