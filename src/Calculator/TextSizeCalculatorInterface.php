@@ -15,6 +15,7 @@ namespace AltThree\Badger\Calculator;
  * This is the text size calculator interface.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 interface TextSizeCalculatorInterface
 {
@@ -42,10 +43,10 @@ interface TextSizeCalculatorInterface
     /**
      * Calculate the width of the text box.
      *
-     * @param string $text
-     * @param int    $size
+     * @param string   $text
+     * @param int|null $size
      *
      * @return float
      */
-    public function calculateWidth($text, $size = self::TEXT_SIZE);
+    public function calculateWidth($text, $size = null);
 }

@@ -79,21 +79,21 @@ class Badge
     /**
      * Create a new badge instance.
      *
-     * @param string $subject
-     * @param string $status
-     * @param string $color
-     * @param string $format
+     * @param string      $subject
+     * @param string      $status
+     * @param string      $color
+     * @param string|null $format
      *
      * @throws \AltThree\Badger\Exceptions\InvalidHexColorException
      *
      * @return void
      */
-    public function __construct($subject, $status, $color, $format = self::DEFAULT_FORMAT)
+    public function __construct($subject, $status, $color, $format = null)
     {
         $this->subject = htmlspecialchars($subject, ENT_XML1, 'UTF-8');
         $this->status = htmlspecialchars($status, ENT_XML1, 'UTF-8');
         $this->color = $this->getColorMapOrAsHex($color);
-        $this->format = $format;
+        $this->format = $format ?: static::DEFAULT_FORMAT;
 
         if (!$this->isValidHex($this->color)) {
             throw new InvalidHexColorException('The color argument "'.$this->color.'" is invalid.');

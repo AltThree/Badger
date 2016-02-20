@@ -14,12 +14,13 @@ namespace AltThree\Tests\Badger\Render;
 use AltThree\Badger\Badge;
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
 use AltThree\Badger\Render\SocialRender;
-use AltThree\Tests\Badger\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the social render test case class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class SocialRenderTest extends AbstractTestCase
 {
@@ -42,9 +43,12 @@ class SocialRenderTest extends AbstractTestCase
 
     protected function getSocialRenderer()
     {
-        $textSizeCalculator = new GDTextSizeCalculator();
+        $base = __DIR__.'/../../resources/';
 
-        return new SocialRender($textSizeCalculator);
+        $calculator = new GDTextSizeCalculator(realpath($base.'fonts/DejaVuSans.ttf'));
+        $path = $base.'templates';
+
+        return new SocialRender($calculator, realpath($path));
     }
 
     protected function getStubFile($file)

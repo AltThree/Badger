@@ -15,8 +15,9 @@ namespace AltThree\Badger\Render;
  * This is the plastic flat render class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
-class PlasticFlatRender extends AbstractRender implements RenderInterface
+class PlasticFlatRender extends AbstractRender
 {
     /**
      * Return a list of supported formats by the render.

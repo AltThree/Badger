@@ -17,8 +17,9 @@ use AltThree\Badger\Badge;
  * This is the social render class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
-class SocialRender extends AbstractRender implements RenderInterface
+class SocialRender extends AbstractRender
 {
     /**
      * Return a list of supported formats by the render.
@@ -46,7 +47,7 @@ class SocialRender extends AbstractRender implements RenderInterface
             'vendorWidth'         => $subjectWidth,
             'valueWidth'          => $statusWidth,
             'totalWidth'          => ($subjectWidth + $statusWidth) + 7,
-            'vendorColor'         => $this->vendorColor,
+            'vendorColor'         => $this->color,
             'valueColor'          => $badge->getHexColor(),
             'vendor'              => $badge->getSubject(),
             'value'               => $badge->getStatus(),

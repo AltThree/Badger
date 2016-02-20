@@ -11,6 +11,8 @@
 
 namespace AltThree\Badger;
 
+use AltThree\Badger\Calculator\GDTextSizeCalculator;
+use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
 use AltThree\Badger\Render\FlatSquareRender;
 use AltThree\Badger\Render\PlasticFlatRender;
 use AltThree\Badger\Render\PlasticRender;
@@ -22,6 +24,7 @@ use Illuminate\Support\ServiceProvider;
  * This is the badger service provider class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class BadgerServiceProvider extends ServiceProvider
 {
@@ -32,22 +35,42 @@ class BadgerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerCalculator();
         $this->registerBadger();
     }
 
     /**
-     * Register the parser class.
+     * Register the calculator class.
+     *
+     * @return void
+     */
+    protected function registerCalculator()
+    {
+        $this->app->singleton(TextSizeCalculatorInterface::class, function (Container $app) {
+            $path = __DIR__.'/../resources/fonts/DejaVuSans.ttf';
+
+            return new GDTextSizeCalculator(realpath($path));
+        });
+
+        $this->app->singleton('badger.calculator', TextSizeCalculatorInterface::class);
+    }
+
+    /**
+     * Register the badger class.
      *
      * @return void
      */
     protected function registerBadger()
     {
         $this->app->singleton(Badger::class, function (Container $app) {
+            $calculator = $app->make('badger.calculator');
+            $path = __DIR__.'/../resources/templates';
+
             $renderers = [
-                new PlasticRender(),
-                new PlasticFlatRender(),
-                new FlatSquareRender(),
-                new SocialRender(),
+                new PlasticRender($calculator, $path),
+                new PlasticFlatRender($calculator, $path),
+                new FlatSquareRender($calculator, $path),
+                new SocialRender($calculator, $path),
             ];
 
             return new Badger($renderers);
@@ -65,6 +88,7 @@ class BadgerServiceProvider extends ServiceProvider
     {
         return [
             'badger',
+            'badger.calculator',
         ];
     }
 }

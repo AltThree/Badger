@@ -13,13 +13,13 @@ namespace AltThree\Badger\Render;
 
 use AltThree\Badger\Badge;
 use AltThree\Badger\BadgeImage;
-use AltThree\Badger\Calculator\GDTextSizeCalculator;
 use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
 
 /**
  * This is the abstract render class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractRender implements RenderInterface
 {
@@ -28,31 +28,36 @@ abstract class AbstractRender implements RenderInterface
      *
      * @var \AltThree\Badger\Calculator\TextSizeCalculatorInterface
      */
-    protected $textSizeCalculator;
+    protected $calculator;
+
+    /**
+     * The path to the template folder.
+     *
+     * @var string
+     */
+    protected $path;
 
     /**
      * The vendor color of the badge.
      *
      * @var string
      */
-    protected $vendorColor = '#555555';
+    protected $color;
 
     /**
      * Create a new svg render instance.
      *
-     * @param \AltThree\Badger\Calculator\TextSizeCalculatorInterface|null $textSizeCalculator
-     * @param string|null                                                  $path
+     * @param \AltThree\Badger\Calculator\TextSizeCalculatorInterface $calculator
+     * @param string                                                  $path
+     * @param string|null                                             $color
      *
      * @return void
      */
-    public function __construct(TextSizeCalculatorInterface $textSizeCalculator = null, $path = null)
+    public function __construct(TextSizeCalculatorInterface $calculator, $path, $color = null)
     {
-        if ($textSizeCalculator === null) {
-            $textSizeCalculator = new GDTextSizeCalculator();
-        }
-
-        $this->textSizeCalculator = $textSizeCalculator;
-        $this->path = $path ?: __DIR__.'/../../templates';
+        $this->calculator = $calculator;
+        $this->path = $path;
+        $this->color = $color ?: '#555555';
     }
 
     /**
@@ -71,7 +76,7 @@ abstract class AbstractRender implements RenderInterface
             'vendorWidth'         => $subjectWidth,
             'valueWidth'          => $statusWidth,
             'totalWidth'          => $subjectWidth + $statusWidth,
-            'vendorColor'         => $this->vendorColor,
+            'vendorColor'         => $this->color,
             'valueColor'          => $badge->getHexColor(),
             'vendor'              => $badge->getSubject(),
             'value'               => $badge->getStatus(),
@@ -83,25 +88,13 @@ abstract class AbstractRender implements RenderInterface
     }
 
     /**
-     * Return a list of supported formats by the render.
-     *
-     * @return string[]
-     */
-    public function getSupportedFormats()
-    {
-        return [
-            //
-        ];
-    }
-
-    /**
      * Returns the string width.
      *
      * @return float
      */
     protected function stringWidth($text)
     {
-        return $this->textSizeCalculator->calculateWidth($text);
+        return $this->calculator->calculateWidth($text);
     }
 
     /**

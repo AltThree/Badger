@@ -12,18 +12,20 @@
 namespace AltThree\Tests\Badger\Calculator;
 
 use AltThree\Badger\Calculator\GDTextSizeCalculator;
-use AltThree\Tests\Badger\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the gd text size calculator test case class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class GDTextSizeCalculatorTest extends AbstractTestCase
 {
     public function testCalculateWidth()
     {
-        $textSizeCalculator = new GDTextSizeCalculator();
-        $this->assertEquals(60, $textSizeCalculator->calculateWidth('Alt Three'));
+        $calculator = new GDTextSizeCalculator(realpath(__DIR__.'/../../resources/fonts/DejaVuSans.ttf'));
+
+        $this->assertSame(60.0, $calculator->calculateWidth('Alt Three'));
     }
 }

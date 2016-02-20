@@ -15,6 +15,7 @@ namespace AltThree\Badger\Calculator;
  * This is the gd text size calculator class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class GDTextSizeCalculator implements TextSizeCalculatorInterface
 {
@@ -23,38 +24,33 @@ class GDTextSizeCalculator implements TextSizeCalculatorInterface
      *
      * @var string
      */
-    protected $fontPath;
-
-    /**
-     * The font that we're using.
-     *
-     * @var string
-     */
-    const TEXT_FONT = './Font/DejaVuSans.ttf';
+    protected $path;
 
     /**
      * Create a new gd text size calculator instance.
      *
+     * @param string $path
+     *
      * @return void
      */
-    public function __construct()
+    public function __construct($path)
     {
-        $this->fontPath = __DIR__.'/'.self::TEXT_FONT;
+        $this->path = $path;
     }
 
     /**
      * Calculate the width of the text box.
      *
-     * @param string $text
-     * @param int    $size
+     * @param string   $text
+     * @param int|null $size
      *
      * @return float
      */
-    public function calculateWidth($text, $size = self::TEXT_SIZE)
+    public function calculateWidth($text, $size = null)
     {
-        $size = round($size * 0.75, 1);
-        $box = imagettfbbox($size, 0, $this->fontPath, $text);
+        $size = round(($size ?: static::TEXT_SIZE) * 0.75, 1);
+        $box = imagettfbbox($size, 0, $this->path, $text);
 
-        return round(abs($box[2] - $box[0]) + self::SHIELD_PADDING_EXTERNAL + self::SHIELD_PADDING_INTERNAL, 1);
+        return round(abs($box[2] - $box[0]) + static::SHIELD_PADDING_EXTERNAL + static::SHIELD_PADDING_INTERNAL, 1);
     }
 }
