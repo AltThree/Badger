@@ -20,6 +20,7 @@ use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
  * This is the abstract render class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractRender implements RenderInterface
 {
@@ -80,18 +81,6 @@ abstract class AbstractRender implements RenderInterface
         ];
 
         return $this->renderSvg($params, $badge->getFormat());
-    }
-
-    /**
-     * Return a list of supported formats by the render.
-     *
-     * @return string[]
-     */
-    public function getSupportedFormats()
-    {
-        return [
-            //
-        ];
     }
 
     /**
