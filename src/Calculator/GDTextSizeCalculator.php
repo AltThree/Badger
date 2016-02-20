@@ -15,6 +15,7 @@ namespace AltThree\Badger\Calculator;
  * This is the gd text size calculator class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class GDTextSizeCalculator implements TextSizeCalculatorInterface
 {
@@ -23,23 +24,18 @@ class GDTextSizeCalculator implements TextSizeCalculatorInterface
      *
      * @var string
      */
-    protected $fontPath;
-
-    /**
-     * The font that we're using.
-     *
-     * @var string
-     */
-    const TEXT_FONT = './Font/DejaVuSans.ttf';
+    protected $path;
 
     /**
      * Create a new gd text size calculator instance.
      *
+     * @param string $path
+     *
      * @return void
      */
-    public function __construct()
+    public function __construct($path)
     {
-        $this->fontPath = __DIR__.'/'.self::TEXT_FONT;
+        $this->path = $path;
     }
 
     /**
