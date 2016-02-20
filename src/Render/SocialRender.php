@@ -47,7 +47,7 @@ class SocialRender extends AbstractRender
             'vendorWidth'         => $subjectWidth,
             'valueWidth'          => $statusWidth,
             'totalWidth'          => ($subjectWidth + $statusWidth) + 7,
-            'vendorColor'         => $this->vendorColor,
+            'vendorColor'         => $this->color,
             'valueColor'          => $badge->getHexColor(),
             'vendor'              => $badge->getSubject(),
             'value'               => $badge->getStatus(),

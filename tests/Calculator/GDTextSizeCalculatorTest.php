@@ -26,6 +26,6 @@ class GDTextSizeCalculatorTest extends AbstractTestCase
     {
         $calculator = new GDTextSizeCalculator(realpath(__DIR__.'/../../resources/fonts/DejaVuSans.ttf'));
 
-        $this->assertSame(60, $calculator->calculateWidth('Alt Three'));
+        $this->assertSame(60.0, $calculator->calculateWidth('Alt Three'));
     }
 }
