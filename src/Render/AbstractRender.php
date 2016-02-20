@@ -32,11 +32,11 @@ abstract class AbstractRender implements RenderInterface
     protected $calculator;
 
     /**
-     * The template path.
+     * The path to the template folder.
      *
-     * @var \AltThree\Badger\Calculator\TextSizeCalculatorInterface
+     * @var string
      */
-    protected $calculator;
+    protected $path;
 
     /**
      * The vendor color of the badge.
