@@ -12,12 +12,14 @@
 namespace AltThree\Tests\Badger;
 
 use AltThree\Badger\Badger;
+use AltThree\Badger\Calculator\TextSizeCalculatorInterface;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
  * This is the service provider test class.
  *
  * @author James Brooks <james@alt-three.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class ServiceProviderTest extends AbstractTestCase
 {
@@ -26,5 +28,10 @@ class ServiceProviderTest extends AbstractTestCase
     public function testBadgerIsInjectable()
     {
         $this->assertIsInjectable(Badger::class);
+    }
+
+    public function testCalculatorIsInjectable()
+    {
+        $this->assertIsInjectable(TextSizeCalculatorInterface::class);
     }
 }

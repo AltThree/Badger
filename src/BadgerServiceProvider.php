@@ -52,7 +52,7 @@ class BadgerServiceProvider extends ServiceProvider
             return new GDTextSizeCalculator(realpath($path));
         });
 
-        $this->app->singleton('calculator', TextSizeCalculatorInterface::class);
+        $this->app->singleton('badger.calculator', TextSizeCalculatorInterface::class);
     }
 
     /**
