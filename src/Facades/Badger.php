@@ -13,6 +13,11 @@ namespace AltThree\Badger\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * This is the badger facade class.
+ *
+ * @author James Brooks <james@alt-three.com>
+ */
 class Badger extends Facade
 {
     /**
