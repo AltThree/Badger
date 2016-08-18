@@ -23,9 +23,7 @@ Instead, you may of course manually update your require block and run `composer 
 }
 ```
 
-Once Alt Three Badger is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
-
-* `'AltThree\Badger\BadgerServiceProvider'`
+Once Alt Three Badger is installed, you need to register the service provider. Open up `config/app.php` and add the `AltThree\Badger\BadgerServiceProvider` class to the `providers`.
 
 
 ## Examples
