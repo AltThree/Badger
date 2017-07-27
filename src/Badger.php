@@ -24,7 +24,7 @@ class Badger
     /**
      * The available renderers.
      *
-     * @var string[]
+     * @var \AltThree\Badger\Render\RenderInterface[]
      */
     protected $renderers;
 

@@ -103,7 +103,7 @@ abstract class AbstractRender implements RenderInterface
      * @param array  $params
      * @param string $format
      *
-     * @return string
+     * @return \AltThree\Badger\BadgeImage
      */
     protected function renderSvg(array $params, $format)
     {
