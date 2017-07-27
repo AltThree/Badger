@@ -211,6 +211,6 @@ class Badge
     {
         $color = ltrim($color, '#'); // Strip the leading #
 
-        return preg_match('/^[0-9a-fA-F]{3,6}$/', $color);
+        return (bool) preg_match('/^[0-9a-fA-F]{3,6}$/', $color);
     }
 }
