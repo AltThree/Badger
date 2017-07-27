@@ -90,6 +90,8 @@ abstract class AbstractRender implements RenderInterface
     /**
      * Returns the string width.
      *
+     * @param string $text
+     *
      * @return float
      */
     protected function stringWidth($text)
