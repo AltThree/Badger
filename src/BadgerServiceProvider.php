@@ -46,7 +46,7 @@ class BadgerServiceProvider extends ServiceProvider
      */
     protected function registerCalculator()
     {
-        $this->app->singleton(TextSizeCalculatorInterface::class, function (Container $app) {
+        $this->app->singleton(TextSizeCalculatorInterface::class, function () {
             $path = __DIR__.'/../resources/fonts/DejaVuSans.ttf';
 
             return new GDTextSizeCalculator(realpath($path));
