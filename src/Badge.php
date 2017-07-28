@@ -88,7 +88,7 @@ class Badge
      *
      * @return void
      */
-    public function __construct($subject, $status, $color, $format = null)
+    public function __construct(string $subject, string $status, string $color, string $format = null)
     {
         $this->subject = htmlspecialchars($subject, ENT_XML1, 'UTF-8');
         $this->status = htmlspecialchars($status, ENT_XML1, 'UTF-8');
@@ -109,7 +109,7 @@ class Badge
      *
      * @return \AltThree\Badger\Badge
      */
-    public static function fromString($format)
+    public static function fromString(string $format)
     {
         if (preg_match('/^(([^-]|--)+)-(([^-]|--)+)-(([^-]|--)+)\.(svg|png|gif|jpg)$/', $format, $match) === false && (7 != count($match))) {
             throw new InvalidArgumentException('The given format string is invalid: '.$format);
@@ -195,7 +195,7 @@ class Badge
      *
      * @return string
      */
-    protected function getColorMapOrAsHex($color)
+    protected function getColorMapOrAsHex(string $color)
     {
         return isset($this->colorMap[$color]) ? $this->colorMap[$color] : $color;
     }
@@ -207,7 +207,7 @@ class Badge
      *
      * @return bool
      */
-    protected function isValidHex($color)
+    protected function isValidHex(string $color)
     {
         $color = ltrim($color, '#'); // Strip the leading #
 

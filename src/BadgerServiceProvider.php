@@ -64,7 +64,7 @@ class BadgerServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Badger::class, function (Container $app) {
             $calculator = $app->make('badger.calculator');
-            $path = __DIR__.'/../resources/templates';
+            $path = realpath(__DIR__.'/../resources/templates');
 
             $renderers = [
                 new PlasticRender($calculator, $path),

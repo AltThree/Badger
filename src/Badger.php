@@ -52,7 +52,7 @@ class Badger
      *
      * @return \AltThree\Badger\BadgeImage
      */
-    public function generate($subject, $status, $color, $format)
+    public function generate(string $subject, string $status, string $color, string $format)
     {
         $badge = new Badge($subject, $status, $color, $format);
 
@@ -68,7 +68,7 @@ class Badger
      *
      * @return \AltThree\Badger\BadgeImage
      */
-    public function generateFromString($string)
+    public function generateFromString(string $string)
     {
         $badge = Badge::fromString($string);
 
@@ -98,7 +98,7 @@ class Badger
      *
      * @return \AltThree\Badger\Render\RenderInterface
      */
-    protected function getRendererForFormat($format)
+    protected function getRendererForFormat(string $format)
     {
         if (!isset($this->renderers[$format])) {
             throw new InvalidRendererException('No renders found for the given format: '.$format);

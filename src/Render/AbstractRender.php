@@ -53,7 +53,7 @@ abstract class AbstractRender implements RenderInterface
      *
      * @return void
      */
-    public function __construct(TextSizeCalculatorInterface $calculator, $path, $color = null)
+    public function __construct(TextSizeCalculatorInterface $calculator, string $path, string $color = null)
     {
         $this->calculator = $calculator;
         $this->path = $path;

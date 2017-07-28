@@ -40,7 +40,7 @@ class BadgeImage
      *
      * @return void
      */
-    public function __construct($content, $format)
+    public function __construct(string $content, string $format)
     {
         $this->content = $content;
         $this->format = $format;
@@ -64,7 +64,7 @@ class BadgeImage
      *
      * @return \AltThree\Badger\BadgeImage
      */
-    public static function createFromString($content, $format)
+    public static function createFromString(string $content, string $format)
     {
         return new self($content, $format);
     }

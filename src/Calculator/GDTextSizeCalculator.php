@@ -33,7 +33,7 @@ class GDTextSizeCalculator implements TextSizeCalculatorInterface
      *
      * @return void
      */
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->path = $path;
     }
@@ -46,7 +46,7 @@ class GDTextSizeCalculator implements TextSizeCalculatorInterface
      *
      * @return float
      */
-    public function calculateWidth($text, $size = null)
+    public function calculateWidth(string $text, int $size = null)
     {
         $size = round(($size ?: static::TEXT_SIZE) * 0.75, 1);
         $box = imagettfbbox($size, 0, $this->path, $text);

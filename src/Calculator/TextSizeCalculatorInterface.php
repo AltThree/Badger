@@ -48,5 +48,5 @@ interface TextSizeCalculatorInterface
      *
      * @return float
      */
-    public function calculateWidth($text, $size = null);
+    public function calculateWidth(string $text, int $size = null);
 }
