@@ -43,6 +43,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "4.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "AltThree\\Badger\\BadgerServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
