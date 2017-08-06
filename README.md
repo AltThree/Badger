@@ -13,7 +13,7 @@ To get the latest version, simply require the project using [Composer](https://g
 $ composer require alt-three/badger
 ```
 
-Once installed, you need to register the `AltThree\Badger\BadgerServiceProvider` service provider in your `config/app.php`.
+Once installed, you need to register the `AltThree\Badger\BadgerServiceProvider` service provider in your `config/app.php`, or if you're using Laravel 5.5, this can be done via the automatic package discovery.
 
 
 ## Examples
