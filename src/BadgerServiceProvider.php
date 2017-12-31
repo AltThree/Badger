@@ -51,7 +51,7 @@ class BadgerServiceProvider extends ServiceProvider
         $this->app->singleton(TextSizeCalculatorInterface::class, function () {
             $path = __DIR__.'/../resources/fonts/DejaVuSans.ttf';
 
-            return new GDTextSizeCalculator(realpath($path));
+            return new GDTextSizeCalculator(realpath($path) ?: $path);
         });
 
         $this->app->singleton('badger.calculator', TextSizeCalculatorInterface::class);
@@ -66,7 +66,7 @@ class BadgerServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Badger::class, function (Container $app) {
             $calculator = $app->make('badger.calculator');
-            $path = realpath(__DIR__.'/../resources/templates');
+            $path = realpath($raw = __DIR__.'/../resources/templates') ?: $raw;
 
             $renderers = [
                 new PlasticRender($calculator, $path),
